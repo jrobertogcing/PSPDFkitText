@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import PSPDFKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        PSPDFKit.setLicenseKey("opfZh96qiUTr6cLfixn8Prcend2q7yztlhbqtHlqllTDnXEowvp4LmsdFBwLoK5Qy3Ze8PD2Utji6nLFJPK83R+jCppzY6MYPl4QMYPKvwwMVIKaX1AROgqG5TR5iwxE+CWtSVwcv784A06LdDPsMoRhy4NOdAYLjoge/xX6qHmw/3JgFfkYuZzrSIuxpD+ZAgVxJuc/zmslIiZIU7CH3K0Ixq3aSIApjBWwL529Dwoajuq6ctcinxlcFNC/jswIWKV2AOt5x+6Wr7HeAMI8NScgJp8zfW0e01xnBP5WBmFDSV0FS/LuC4EZ7f/DYVL9E4hnIEYz2yjK/i17HEkgEr4QNbtRvFqSxBDODsrJVzh3s6vFuuM0yLTKG2uEl1dOfcgKu6zokwoE4zGFnxq8Ok1wNX42PGRwb1PT9g1y9wVkZuFTNHWIBC3Q9p7AZjw9")
+
         return true
     }
 

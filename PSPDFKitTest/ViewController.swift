@@ -7,14 +7,37 @@
 //
 
 import UIKit
+import PSPDFKit
+import PSPDFKitUI
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+      
+     
+
+        
+        
     }
 
-
+    @IBAction func pdfButtonAction(_ sender: UIButton) {
+        
+        
+        let fileURL = Bundle.main.url(forResource: "camara", withExtension: "pdf")!
+        let document = PSPDFDocument(url: fileURL)
+        
+        let pdfController = PSPDFViewController(document: document)
+        
+        present(UINavigationController(rootViewController: pdfController), animated: true)
+        
+    }
+    
+    
+    
+    
+    
 }
 
