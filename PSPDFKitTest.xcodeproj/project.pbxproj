@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8870455C221F1B7800A18A5C /* MultiplePDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8870455B221F1B7800A18A5C /* MultiplePDFViewController.swift */; };
 		889C6B69221DFADE00D74C05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889C6B68221DFADE00D74C05 /* AppDelegate.swift */; };
 		889C6B6B221DFADE00D74C05 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889C6B6A221DFADE00D74C05 /* ViewController.swift */; };
 		889C6B6E221DFADE00D74C05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 889C6B6C221DFADE00D74C05 /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 		889C6BAB221E1B7200D74C05 /* Pilotos y Sobrecargos viajando sin Boleto.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 889C6BA7221E1B7100D74C05 /* Pilotos y Sobrecargos viajando sin Boleto.pdf */; };
 		889C6BAC221E1B7200D74C05 /* Carta_Fiesta_Inn_Aeromexico.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 889C6BA8221E1B7100D74C05 /* Carta_Fiesta_Inn_Aeromexico.pdf */; };
 		889C6BAD221E1B7200D74C05 /* Revisión de Seguridad.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 889C6BA9221E1B7200D74C05 /* Revisión de Seguridad.pdf */; };
+		889C6BAF221E6D0E00D74C05 /* FavoritosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889C6BAE221E6D0E00D74C05 /* FavoritosViewController.swift */; };
 		EAEE07930B646C2E0715F295 /* Pods_PSPDFKitTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B280E86F4E095AA54F235A9 /* Pods_PSPDFKitTest.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		0B280E86F4E095AA54F235A9 /* Pods_PSPDFKitTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PSPDFKitTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8870455B221F1B7800A18A5C /* MultiplePDFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplePDFViewController.swift; sourceTree = "<group>"; };
 		889C6B65221DFADE00D74C05 /* PSPDFKitTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PSPDFKitTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		889C6B68221DFADE00D74C05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		889C6B6A221DFADE00D74C05 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +70,7 @@
 		889C6BA7221E1B7100D74C05 /* Pilotos y Sobrecargos viajando sin Boleto.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Pilotos y Sobrecargos viajando sin Boleto.pdf"; sourceTree = "<group>"; };
 		889C6BA8221E1B7100D74C05 /* Carta_Fiesta_Inn_Aeromexico.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Carta_Fiesta_Inn_Aeromexico.pdf; sourceTree = "<group>"; };
 		889C6BA9221E1B7200D74C05 /* Revisión de Seguridad.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Revisión de Seguridad.pdf"; sourceTree = "<group>"; };
+		889C6BAE221E6D0E00D74C05 /* FavoritosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritosViewController.swift; sourceTree = "<group>"; };
 		9A4977A7A388EA00A9D24D7B /* Pods-PSPDFKitTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PSPDFKitTest.release.xcconfig"; path = "Target Support Files/Pods-PSPDFKitTest/Pods-PSPDFKitTest.release.xcconfig"; sourceTree = "<group>"; };
 		AAE682DBF2412315F6322D45 /* Pods-PSPDFKitTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PSPDFKitTest.debug.xcconfig"; path = "Target Support Files/Pods-PSPDFKitTest/Pods-PSPDFKitTest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,6 +138,8 @@
 				889C6B68221DFADE00D74C05 /* AppDelegate.swift */,
 				889C6B6A221DFADE00D74C05 /* ViewController.swift */,
 				889C6B6C221DFADE00D74C05 /* Main.storyboard */,
+				889C6BAE221E6D0E00D74C05 /* FavoritosViewController.swift */,
+				8870455B221F1B7800A18A5C /* MultiplePDFViewController.swift */,
 				889C6B9F221E051A00D74C05 /* ManualesTableView */,
 				889C6B72221DFADF00D74C05 /* Assets.xcassets */,
 				889C6B74221DFADF00D74C05 /* LaunchScreen.storyboard */,
@@ -374,9 +380,11 @@
 			files = (
 				889C6B6B221DFADE00D74C05 /* ViewController.swift in Sources */,
 				889C6B71221DFADE00D74C05 /* PSPDFKitTest.xcdatamodeld in Sources */,
+				889C6BAF221E6D0E00D74C05 /* FavoritosViewController.swift in Sources */,
 				889C6B69221DFADE00D74C05 /* AppDelegate.swift in Sources */,
 				889C6BA1221E054A00D74C05 /* ManualesViewController.swift in Sources */,
 				889C6BA4221E05A300D74C05 /* ManualesTableViewCell.swift in Sources */,
+				8870455C221F1B7800A18A5C /* MultiplePDFViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -561,6 +569,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Gonet.PSPDFKitTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_REFLECTION_METADATA_LEVEL = all;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -580,6 +589,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Gonet.PSPDFKitTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_REFLECTION_METADATA_LEVEL = all;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 2;
 			};

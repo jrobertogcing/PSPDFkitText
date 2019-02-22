@@ -84,5 +84,39 @@
             </objects>
             <point key="canvasLocation" x="-159.19999999999999" y="804.64767616191909"/>
         </scene>
+        <!--Favoritos-->
+        <scene sceneID="Zk3-gB-vvD">
+            <objects>
+                <viewController storyboardIdentifier="FavoritosViewController" id="16G-aQ-bbz" customClass="FavoritosViewController" customModule="PSPDFKitTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ild-og-97F">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afk-dR-4tk">
+                                <rect key="frame" x="20" y="20" width="156" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="addButtonAction:" destination="16G-aQ-bbz" eventType="touchUpInside" id="3Ml-dZ-orj"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jl5-N0-YCT">
+                                <rect key="frame" x="20" y="71" width="567" height="677"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Yip-tf-1BO"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Favoritos" id="iCL-f7-tNX"/>
+                    <connections>
+                        <outlet property="pdfView" destination="Jl5-N0-YCT" id="PGc-qW-pHb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6nT-Dx-sca" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="779.8828125" y="1508.59375"/>
+        </scene>
     </scenes>
 </document>
