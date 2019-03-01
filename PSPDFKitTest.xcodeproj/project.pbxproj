@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8870455C221F1B7800A18A5C /* MultiplePDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8870455B221F1B7800A18A5C /* MultiplePDFViewController.swift */; };
+		8870455E221F7A1C00A18A5C /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8870455D221F7A1C00A18A5C /* PDFViewController.swift */; };
+		8870456122206FD600A18A5C /* PDFTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8870456022206FD600A18A5C /* PDFTabController.swift */; };
 		889C6B69221DFADE00D74C05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889C6B68221DFADE00D74C05 /* AppDelegate.swift */; };
 		889C6B6B221DFADE00D74C05 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889C6B6A221DFADE00D74C05 /* ViewController.swift */; };
 		889C6B6E221DFADE00D74C05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 889C6B6C221DFADE00D74C05 /* Main.storyboard */; };
@@ -48,6 +50,8 @@
 /* Begin PBXFileReference section */
 		0B280E86F4E095AA54F235A9 /* Pods_PSPDFKitTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PSPDFKitTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8870455B221F1B7800A18A5C /* MultiplePDFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplePDFViewController.swift; sourceTree = "<group>"; };
+		8870455D221F7A1C00A18A5C /* PDFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
+		8870456022206FD600A18A5C /* PDFTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFTabController.swift; sourceTree = "<group>"; };
 		889C6B65221DFADE00D74C05 /* PSPDFKitTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PSPDFKitTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		889C6B68221DFADE00D74C05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		889C6B6A221DFADE00D74C05 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +114,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		8870455F22206F9D00A18A5C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8870455D221F7A1C00A18A5C /* PDFViewController.swift */,
+				8870456022206FD600A18A5C /* PDFTabController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		889C6B5C221DFADE00D74C05 = {
 			isa = PBXGroup;
 			children = (
@@ -138,8 +151,9 @@
 				889C6B68221DFADE00D74C05 /* AppDelegate.swift */,
 				889C6B6A221DFADE00D74C05 /* ViewController.swift */,
 				889C6B6C221DFADE00D74C05 /* Main.storyboard */,
-				889C6BAE221E6D0E00D74C05 /* FavoritosViewController.swift */,
+				88E76877222994D8007A0CCB /* Independiente */,
 				8870455B221F1B7800A18A5C /* MultiplePDFViewController.swift */,
+				8870455F22206F9D00A18A5C /* Controllers */,
 				889C6B9F221E051A00D74C05 /* ManualesTableView */,
 				889C6B72221DFADF00D74C05 /* Assets.xcassets */,
 				889C6B74221DFADF00D74C05 /* LaunchScreen.storyboard */,
@@ -180,6 +194,14 @@
 				889C6BA3221E05A300D74C05 /* ManualesTableViewCell.xib */,
 			);
 			path = ManualesTableView;
+			sourceTree = "<group>";
+		};
+		88E76877222994D8007A0CCB /* Independiente */ = {
+			isa = PBXGroup;
+			children = (
+				889C6BAE221E6D0E00D74C05 /* FavoritosViewController.swift */,
+			);
+			path = Independiente;
 			sourceTree = "<group>";
 		};
 		E7CEA4A2697DA1166408F6D8 /* Frameworks */ = {
@@ -381,8 +403,10 @@
 				889C6B6B221DFADE00D74C05 /* ViewController.swift in Sources */,
 				889C6B71221DFADE00D74C05 /* PSPDFKitTest.xcdatamodeld in Sources */,
 				889C6BAF221E6D0E00D74C05 /* FavoritosViewController.swift in Sources */,
+				8870455E221F7A1C00A18A5C /* PDFViewController.swift in Sources */,
 				889C6B69221DFADE00D74C05 /* AppDelegate.swift in Sources */,
 				889C6BA1221E054A00D74C05 /* ManualesViewController.swift in Sources */,
+				8870456122206FD600A18A5C /* PDFTabController.swift in Sources */,
 				889C6BA4221E05A300D74C05 /* ManualesTableViewCell.swift in Sources */,
 				8870455C221F1B7800A18A5C /* MultiplePDFViewController.swift in Sources */,
 			);

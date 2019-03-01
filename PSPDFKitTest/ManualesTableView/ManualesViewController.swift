@@ -9,7 +9,7 @@ import UIKit
 import PSPDFKit
 import PSPDFKitUI
 
-class ManualesViewController: UIViewController, PSPDFTabbedViewControllerDelegate  {
+class ManualesViewController: UIViewController,  PSPDFMultiDocumentViewControllerDelegate {
 
     var arr = [String]()
     var arrayManuales = [String]()
@@ -20,6 +20,13 @@ class ManualesViewController: UIViewController, PSPDFTabbedViewControllerDelegat
     var fileURL: URL?
     var controller = PSPDFViewController()
     var pdfMultipleController = PSPDFTabbedViewController()
+    
+    var pdfMultipleController2 = PSPDFMultiDocumentViewController()
+    
+    var window: UIWindow?
+
+    
+    @IBOutlet weak var pdfView: UIView!
     
     @IBOutlet weak var manualesTableView: UITableView!
     
@@ -43,16 +50,17 @@ class ManualesViewController: UIViewController, PSPDFTabbedViewControllerDelegat
     }
     
     
-    func addDocument(_ document: PSPDFDocument, makeVisible shouldMakeDocumentVisible: Bool, animated: Bool){
+    @IBAction func deleteButtonAction(_ sender: Any) {
         
+        
+        pdfMultipleController.removeDocument(at: 0, animated: true)
+        
+        arrayManuales.remove(at: 0)
         
     }
-
-  
-
 }
 
-extension ManualesViewController: UITableViewDelegate, UITableViewDataSource {
+extension ManualesViewController: UITableViewDelegate, UITableViewDataSource, PSPDFTabbedViewControllerDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return arr.count
@@ -75,8 +83,10 @@ extension ManualesViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        
-        
+        let window = UIWindow(frame: pdfView.bounds)
+        self.window = window
+        window.backgroundColor = UIColor.white
+        pdfView.addSubview(window)
         // read array NSUserdefault
         let defaults = UserDefaults.standard
         arrayManuales = defaults.stringArray(forKey: "arrayManuales") ?? [String]()
@@ -89,11 +99,8 @@ extension ManualesViewController: UITableViewDelegate, UITableViewDataSource {
 
             arrayManuales.append(arr[indexPath.row])
 
-            //seve new data in NSUserdefault
-            defaults.set(arrayManuales, forKey: "arrayManuales")
-
-            print("arrayManuales valores despues de guardar:")
-            print(arrayManuales)
+            //save new data in NSUserdefault
+            saveDocumentName(arrayManuales: arrayManuales)
 
             for documentArray in arrayManuales {
 
@@ -102,80 +109,121 @@ extension ManualesViewController: UITableViewDelegate, UITableViewDataSource {
 
                 if flagPDFController == false {
                     flagPDFController = true
-                    controller = PSPDFViewController(document: document, configuration: PSPDFConfiguration { builder in
-                        // builder.thumbnailBarMode = .none
-                        builder.shouldShowUserInterfaceOnViewWillAppear = false
-                        builder.isPageLabelEnabled = false
+                    
+                    controller = PSPDFViewController(document: document, configuration:PSPDFConfiguration { builder in
+                      
+                        builder.shouldShowUserInterfaceOnViewWillAppear = true
+                        builder.isPageLabelEnabled = true
+                        
+                        
                     })
+                    
                    
-                    pdfMultipleController = PSPDFTabbedViewController(pdfViewController: controller)
+                pdfMultipleController = PSPDFTabbedViewController(pdfViewController: controller)
+                    
+                // Set delegate to PSPDFTabbedViewCpontroller
+                pdfMultipleController.delegate = self
+
+                    //tabbedPDFController:didCloseDocument
+                    
+                    
+                //Custom TabbbedBar
+                pdfMultipleController.tabbedBar.barHeight = 100
+                pdfMultipleController.tabbedBar.tintColor = UIColor.blue
 
                 }
-
-
+                
                 pdfMultipleController.addDocument(document!, makeVisible: true, animated: true)
-
             }
 
         } else {
 
-            print("No esta en el array")
+            print("Ya esta en el array y debe mostar el mismo documento.")
+            if arrayManuales.count == 0 {
+                
+            }
+            
+            
+            }
+        
+
+       window.rootViewController = UINavigationController(rootViewController: pdfMultipleController)
+        window.makeKeyAndVisible()
+        
+        
+        
         }
-        
-        present(UINavigationController(rootViewController: pdfMultipleController), animated: true)
+    
+    func saveDocumentName(arrayManuales: [String])  {
+       
+        let defaults = UserDefaults.standard
 
-
-
+        //seve new data in NSUserdefault
+        defaults.set(arrayManuales, forKey: "arrayManuales")
         
-//      //PRUEBA MANDANDO 2 PDF EN TABS
-//
-//        let fileURL1 = Bundle.main.url(forResource: arr[2], withExtension: "pdf")!
-//        let document1 = PSPDFDocument(url: fileURL1)
-//
-//        let controller1 = PSPDFViewController(document: document, configuration: PSPDFConfiguration { builder in
-//            // builder.thumbnailBarMode = .none
-//            builder.shouldShowUserInterfaceOnViewWillAppear = false
-//            builder.isPageLabelEnabled = false
-//        })
-//
-//        let fileURL2 = Bundle.main.url(forResource: arr[indexPath.row], withExtension: "pdf")!
-//        let document2 = PSPDFDocument(url: fileURL2)
-//
-//        let controller2 = PSPDFViewController(document: document2, configuration: PSPDFConfiguration { builder in
-//            // builder.thumbnailBarMode = .none
-//            builder.shouldShowUserInterfaceOnViewWillAppear = false
-//            builder.isPageLabelEnabled = false
-//        })
-//
-//
-//
-//
-//        let pdfMultipleController = PSPDFTabbedViewController(pdfViewController: controller1)
-//
-//        pdfMultipleController.addDocument(document1, makeVisible: true, animated: true)
-//        pdfMultipleController.addDocument(document2, makeVisible: true, animated: true)
-//
-//
-//        present(UINavigationController(rootViewController: pdfMultipleController), animated: true)
-
-        
-        
-        
-        
-        // Go to the last page using a transitioning animation.
-        //        let lastPage = document.pageCount - 1
-        //        pdfController.setPageIndex(lastPage, animated: true)
-        
-      
-       // Send to Favoritos view TEST
-//        let favoritosVC = storyboard?.instantiateViewController(withIdentifier: "FavoritosViewController") as! FavoritosViewController
-//
-//        favoritosVC.pdfName = arr[indexPath.row]
-//
-//            self.present(favoritosVC, animated:true, completion:nil)
+        print("arrayManuales valores despues de guardar:")
+        print(arrayManuales)
 
         
     }
     
+    func removeDocumentName(name: String) {
+        
+        print("Nombre para borrar")
+        print(name)
+        let defaults = UserDefaults.standard
+        
+        // Remove from array
+        for removeName in arrayManuales {
+            
+            if removeName + ".pdf" == name {
+                
+                if let indexToRemove = arrayManuales.index(of: removeName) {
+                
+                arrayManuales.remove(at: indexToRemove)
+                
+                break
+                }
+            }
+        }
+        
+        print("Despues de borrar")
+        print(arrayManuales)
+        
+        
+        // Remove from nsuserdefault
+        defaults.set(arrayManuales, forKey: "arrayManuales")
+        print("arrayManuales valores despues de borrar y volver a guardar:")
+        print(arrayManuales)
 
+    }
+    
+        
+    func tabbedPDFController(_ tabbedPDFController: PSPDFTabbedViewController, didClose document: PSPDFDocument) {
+        
+        
+        // arrayManuales.remove(at: )
+        if let documentName = document.fileName {
+            print(documentName)
+        // R
+        removeDocumentName(name: documentName)
+            
+        }
+        
+    }
+    
+    func tabbedPDFController(_ tabbedPDFController: PSPDFTabbedViewController, shouldChangeVisibleDocument newVisibleDocument: PSPDFDocument?) -> Bool {
+        
+        
+        print(newVisibleDocument!)
+        return true
+    }
+    
+//    func tabbedPDFController(_ tabbedPDFController: PSPDFTabbedViewController, shouldClose document: PSPDFDocument) -> Bool {
+//        print(document)
+//
+//        return true
+//    }
+    
+    
 }

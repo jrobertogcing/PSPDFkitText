@@ -10,37 +10,35 @@ import UIKit
 import PSPDFKitUI
 import PSPDFKit
 
-class FavoritosViewController: UIViewController,  PSPDFTabbedViewControllerDelegate {
+class FavoritosViewController: UIViewController, PSPDFTabbedViewControllerDelegate {
 
     
     @IBOutlet weak var pdfView: UIView!
     
     var pdfName = ""
+    var window: UIWindow?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        print(pdfName)
-//            let fileURL = Bundle.main.url(forResource: pdfName, withExtension: "pdf")!
-//            let document = PSPDFDocument(url: fileURL)
+        
+//        let window = UIWindow(frame: pdfView.bounds)
+//        self.window = window
+//        window.backgroundColor = UIColor.white
 //
-//           // addDocument(document2, makeVisible: true, animated: true)
+//        let fileURL = Bundle.main.bundleURL.appendingPathComponent("camara.pdf")
 //
-//           // let pdfController = PSPDFViewController(document: document)
+//        let document = PSPDFDocument(url: fileURL)
+//        let configuration = PSPDFConfiguration { builder in
+//            builder.thumbnailBarMode = .scrollable
+//        }
+//        let pdfController = PDFViewController(document: document, configuration: configuration)
 //
+////        self.window?.rootViewController = UINavigationController(rootViewController: pdfController)
+////        self.window?.makeKeyAndVisible()
 //
-//            // Go to the last page using a transitioning animation.
-//    //        let lastPage = document.pageCount - 1
-//    //        pdfController.setPageIndex(lastPage, animated: true)
+//        present(UINavigationController(rootViewController: pdfController), animated: true)
 //
-//            //let document = PSPDFDocument(url: documentURL)
-//            let controller = PSPDFViewController(document: document, configuration: PSPDFConfiguration { builder in
-//               // builder.thumbnailBarMode = .none
-//                builder.shouldShowUserInterfaceOnViewWillAppear = false
-//                builder.isPageLabelEnabled = false
-//            })
-//
-//       // present(UINavigationController(rootViewController: controller), animated: true)
 
     }
     
@@ -48,7 +46,9 @@ class FavoritosViewController: UIViewController,  PSPDFTabbedViewControllerDeleg
 //
         let fileURL = Bundle.main.url(forResource: pdfName, withExtension: "pdf")!
         let document = PSPDFDocument(url: fileURL)
-//
+        
+
+        //Se puede tomar un controlar customizado PDFViewController
 //
         let pdfController = PSPDFViewController(document: document, configuration: PSPDFConfiguration { builder in
             // builder.thumbnailBarMode = .none
@@ -56,18 +56,11 @@ class FavoritosViewController: UIViewController,  PSPDFTabbedViewControllerDeleg
             builder.isPageLabelEnabled = false
         })
         
+        
+        
         let fileURL2 = Bundle.main.url(forResource: "Revisión de Seguridad", withExtension: "pdf")!
         let document2 = PSPDFDocument(url: fileURL2)
         //
-        //
-        let pdfController2 = PSPDFViewController(document: document2, configuration: PSPDFConfiguration { builder in
-            // builder.thumbnailBarMode = .none
-            builder.shouldShowUserInterfaceOnViewWillAppear = false
-            builder.isPageLabelEnabled = false
-        })
-
-        
-        //addDocument(document2, makeVisible: true, animated: true)
         
        // let pdfMultipleController = PSPDFMultiDocumentViewController(pdfViewController: pdfController)
         let pdfMultipleController = PSPDFTabbedViewController(pdfViewController: pdfController)
@@ -75,13 +68,14 @@ class FavoritosViewController: UIViewController,  PSPDFTabbedViewControllerDeleg
 //            builder.thumbnailBarMode = .scrollable
 //        }
 ////
+        // Set delegate to PSPDFTabbedViewCpontroller
+        pdfMultipleController.delegate = self
+        
+        // Add two  documents
         pdfMultipleController.addDocument(document, makeVisible: true, animated: true)
         pdfMultipleController.addDocument(document2, makeVisible: true, animated: true)
         
-        //pdfMultipleController.addChild(pdfController2)
         
-        
-////        present(UINavigationController(rootViewController: controller), animated: true)
 //
 //        let pdfController = MultiplePDFViewController(document: document, configuration: configuration)
         //let pdfController = MultiplePDFViewController
@@ -94,6 +88,25 @@ class FavoritosViewController: UIViewController,  PSPDFTabbedViewControllerDeleg
         
     }
     
-  
+    
+//    func tabbedPDFController(_ tabbedPDFController: PSPDFTabbedViewController, didClose document: PSPDFDocument) {
+//        print(document.documentIdString!)
+//        
+//    }
+//    
+//    func tabbedPDFController(_ tabbedPDFController: PSPDFTabbedViewController, shouldClose document: PSPDFDocument) -> Bool {
+//
+//        return false
+//    }
+//
+//
+//    func tabbedPDFController(_ tabbedPDFController: PSPDFTabbedViewController, didChangeVisibleDocument oldVisibleDocument: PSPDFDocument?) {
+//        print(oldVisibleDocument!)
+//
+//    }
+//
+//    func tabbedPDFController(_ tabbedPDFController: PSPDFTabbedViewController, shouldChangeVisibleDocument newVisibleDocument: PSPDFDocument?) -> Bool {
+//        return true
+//    }
     
 }

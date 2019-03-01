@@ -20,6 +20,7 @@ class MultiplePDFViewController: PSPDFMultiDocumentViewController
 
     }
     
+    
     func addNewPDF() {
         
 //
