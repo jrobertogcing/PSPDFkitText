@@ -57,7 +57,6 @@ class FavoritosViewController: UIViewController, PSPDFTabbedViewControllerDelega
         })
         
         
-        
         let fileURL2 = Bundle.main.url(forResource: "Revisión de Seguridad", withExtension: "pdf")!
         let document2 = PSPDFDocument(url: fileURL2)
         //
@@ -83,8 +82,6 @@ class FavoritosViewController: UIViewController, PSPDFTabbedViewControllerDelega
 //
       present(UINavigationController(rootViewController: pdfMultipleController), animated: true)
 
-       
-        
         
     }
     

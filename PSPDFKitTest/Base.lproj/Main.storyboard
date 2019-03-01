@@ -41,7 +41,7 @@
                         <viewLayoutGuide key="safeArea" id="vMe-2G-KaJ"/>
                     </view>
                     <navigationItem key="navigationItem" title="Favoritos" id="ziZ-IS-M0f">
-                        <barButtonItem key="leftBarButtonItem" title="Borrar" id="EaZ-Wv-nOu">
+                        <barButtonItem key="leftBarButtonItem" title="Test" id="EaZ-Wv-nOu">
                             <connections>
                                 <action selector="deleteButtonAction:" destination="nld-Fh-Ad9" id="hpY-dt-3Ok"/>
                             </connections>

@@ -20,8 +20,8 @@ class ManualesViewController: UIViewController,  PSPDFMultiDocumentViewControlle
     var fileURL: URL?
     var controller = PSPDFViewController()
     var pdfMultipleController = PSPDFTabbedViewController()
-    
     var pdfMultipleController2 = PSPDFMultiDocumentViewController()
+    var tabSelected = PSPDFDocument()
     
     var window: UIWindow?
 
@@ -138,6 +138,15 @@ extension ManualesViewController: UITableViewDelegate, UITableViewDataSource, PS
 
         } else {
 
+            
+            pdfMultipleController.updateTabbedBarFrame(animated: true)
+            
+            fileURL = Bundle.main.url(forResource: arrayManuales[indexPath.row], withExtension: "pdf")!
+            document = PSPDFDocument(url: fileURL!)
+            
+            
+            pdfMultipleController.setVisibleDocument(document, scrollToPosition: true, animated: true)
+            
             print("Ya esta en el array y debe mostar el mismo documento.")
             if arrayManuales.count == 0 {
                 
@@ -148,10 +157,10 @@ extension ManualesViewController: UITableViewDelegate, UITableViewDataSource, PS
         
 
        window.rootViewController = UINavigationController(rootViewController: pdfMultipleController)
-        window.makeKeyAndVisible()
+       window.makeKeyAndVisible()
         
         
-        
+     
         }
     
     func saveDocumentName(arrayManuales: [String])  {
@@ -205,13 +214,14 @@ extension ManualesViewController: UITableViewDelegate, UITableViewDataSource, PS
         // arrayManuales.remove(at: )
         if let documentName = document.fileName {
             print(documentName)
-        // R
+        // Remove Document NSUserdefault
         removeDocumentName(name: documentName)
             
         }
         
     }
     
+   
     func tabbedPDFController(_ tabbedPDFController: PSPDFTabbedViewController, shouldChangeVisibleDocument newVisibleDocument: PSPDFDocument?) -> Bool {
         
         
