@@ -52,10 +52,10 @@ class ManualesViewController: UIViewController,  PSPDFMultiDocumentViewControlle
     
     @IBAction func deleteButtonAction(_ sender: Any) {
         
-        
-        pdfMultipleController.removeDocument(at: 0, animated: true)
-        
-        arrayManuales.remove(at: 0)
+//
+//        pdfMultipleController.removeDocument(at: 0, animated: true)
+//
+//        arrayManuales.remove(at: 0)
         
     }
 }
